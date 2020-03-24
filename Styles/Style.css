@@ -1,0 +1,42 @@
+﻿* {
+    font-family: Arial;
+}
+
+body {
+}
+
+header{
+    background-color: #C0C0C0;
+    width: 844px;
+    height: 86px;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+#PageWrapper {
+    width: 844px;
+    margin: auto;
+}
+
+nav {
+    width: 844px;
+}
+
+section#MainContent {
+    width: 844px;
+
+}
+
+footer {
+    background-color: #C0C0C0;
+    width: 844px;
+    clear: both;
+}
+
+.ErrorMessage{
+    color:darkblue
+}
+ 
+
