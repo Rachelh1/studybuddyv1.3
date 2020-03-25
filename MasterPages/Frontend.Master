@@ -3,26 +3,131 @@
 <!DOCTYPE html>
 
 <html>
+    <!--Start of Head -->
 <head runat="server">
-    <script src="/Scripts/modernizr-2.8.3.js"></script>
-    <script src="/Scripts/jquery-3.0.0.min.js"></script>
-    <script src="/Scripts/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="/Scripts/jquery.mobilemenu.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/Styles/Style.css" rel="stylesheet" type="text/css" />
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link href="/Styles/Style.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/Dark.css" rel="stylesheet" type="text/css" />
 </head>
+    <!-- End of head -->
+
+  
 <body>
+
+
     <form id="form1" runat="server">
-        <div id="PageWrapper">
-            <header>Header Goes Here</header>
-            <nav>Menu Goes Here</nav>
-            <div>
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-                <footer>Footer Goes Here</footer>
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Path="~/Scripts/jquery-3.4.1.min.js" />
+                <asp:ScriptReference Path="~/Scripts/jquery.mobilemenu.js" />
+            </Scripts>
+        </asp:ScriptManager>
+                <div class="wrapper row0">
+                <div id="topbar" class="clear">
+
+              <div id="logo" class="fl_left">
+                    <h1><a href="/Default.aspx">
+                        <img src="/Images/Logo.png" /></a></h1>
+                  <br />
+
+                    </div>
+                </div>
             </div>
-        </div>
+                     
+            <div class="wrapper row2">
+                <div class="rounded">
+                    <nav id="mainav" class="clear">
+                        <ul class="clear">
+                            <li class="active"><a href="../Default.aspx">Home</a></li>
+                            <li>
+                                <a class="drop" href="#">Contact Us</a>
+
+                            </li>
+                            <li>
+                                <a class="drop" href="#">Forums</a>
+                                <ul>
+                                    <li><a href="../Courses/Access.aspx">Access Courses</a></li>
+
+                                </ul>
+                            </li>
+                                                        <li>
+                                <a class="drop" href="#">Chatrooms</a>
+                                <ul>
+                                    <li><a href="../Courses/Access.aspx">Access Courses</a></li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="drop" href="#">Registered Users</a>
+                                <ul>
+                                    <li><a href="/Login.aspx">Log In / SignUp</a></li>
+                                    <li><a href="/Profile.aspx">User Profile</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+       <%-- <!--Header-->
+        <header class="blog-header py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="col-4 pt-1">
+                    <a class="text-muted" href="#">Subscribe</a>
+                </div>
+                <div class="col-4 text-center">
+                    <a class="blog-header-logo text-dark" href="#">Large</a>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <a class="text-muted" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3">
+                            <circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
+                    </a>
+                    <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+                </div>
+            </div>
+        </header>
+
+        <!--Navigation Bar-->
+        <nav class="navbar navbar-dark bg-dark">
+            <div class ="navbar-brand">
+                <ul class="nav nav-pills">
+                <li role="presentation" class="active"><a href="#">Home</a></li>
+                <li role="presentation"><a href="#">Profile</a></li>
+                <li role="presentation"><a href="#">Messages</a></li>
+                   
+            </ul>
+                </div>
+        </nav>--%>
+
+
+        <!--Main Content-->
+                    <div id="MainContent">
+        <asp:ContentPlaceHolder ID="cpMainContent" runat="server">
+        </asp:ContentPlaceHolder>
+                        </div>
+
+        <!--Fixed Footer-->
+      <!-- <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#!">Fixed bottom</a>
+        </nav>-->
+    
+                <div class="wrapper row5">
+                <div id="copyright" class="clear">
+                    <p class="fl_left">Copyright &copy; 2020- Rachel Cunningham</p>
+                    <p class="fl_right">CSS template sourced from <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates and modified accordingly.</a></p>
+                </div>
+            </div>
     </form>
+  
+
 </body>
 </html>

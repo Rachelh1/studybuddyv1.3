@@ -7,47 +7,38 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace studybuddyv1._3.MasterPages
+namespace studybuddyv1._3.Management
 {
 
 
-	public partial class Frontend
+	public partial class AddCourse
 	{
 
 		/// <summary>
-		/// head control.
+		/// GridView1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+		protected global::System.Web.UI.WebControls.GridView GridView1;
 
 		/// <summary>
-		/// form1 control.
+		/// DetailsView1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+		protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
 
 		/// <summary>
-		/// ScriptManager1 control.
+		/// SqlDataSource1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.ScriptManager ScriptManager1;
-
-		/// <summary>
-		/// cpMainContent control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.ContentPlaceHolder cpMainContent;
+		protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 	}
 }

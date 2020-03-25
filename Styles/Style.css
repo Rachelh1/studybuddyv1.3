@@ -5,38 +5,24 @@
 body {
 }
 
-header{
-    background-color: #C0C0C0;
-    width: 844px;
-    height: 86px;
-}
 
-h1 {
-    font-size: 20px;
-}
 
-#PageWrapper {
-    width: 844px;
-    margin: auto;
-}
 
-nav {
-    width: 844px;
-}
-
-section#MainContent {
-    width: 844px;
-
-}
-
-footer {
-    background-color: #C0C0C0;
-    width: 844px;
-    clear: both;
-}
 
 .ErrorMessage{
     color:darkblue
+}
+
+#PageWrapper {
+    width: 85%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.footer{
+ 
 }
  
 
