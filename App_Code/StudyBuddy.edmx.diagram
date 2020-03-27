@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d5c9c272cf3044e883812e46202acef6" Name="Diagram1">
+        <EntityTypeShape EntityType="StudyBuddyModel.Course" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudyBuddyModel.CourseURL" Width="1.5" PointX="2.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudyBuddyModel.UniCourseURL" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudyBuddyModel.University" Width="1.5" PointX="0.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudyBuddyModel.UniversityURL" Width="1.5" PointX="2.75" PointY="2.75" IsExpanded="true" />
+        <AssociationConnector Association="StudyBuddyModel.FK_CourseURL_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="StudyBuddyModel.FK_UniCourseURL_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="StudyBuddyModel.FK_UniCourseURL_University" ManuallyRouted="false" />
+        <AssociationConnector Association="StudyBuddyModel.FK_UniversityURL_University" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

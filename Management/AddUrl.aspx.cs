@@ -13,5 +13,30 @@ namespace studybuddyv1._3.Management
 		{
 
 		}
+
+		protected void DetailsView1_ItemInserted(object sender, DetailsViewInsertedEventArgs e)
+		{
+
+		}
+
+		protected void DetailsView1_ItemInserting(object sender, DetailsViewInsertEventArgs e)
+		{
+
+		}
+
+		protected void DetailsView1_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
+		{
+
+		}
+
+		protected void DetailsView1_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
+		{
+
+		}
+
+		protected void DetailsView1_PageIndexChanging(object sender, DetailsViewPageEventArgs e)
+		{
+
+		}
 	}
 }

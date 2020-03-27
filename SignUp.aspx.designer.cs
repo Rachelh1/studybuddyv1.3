@@ -11,16 +11,16 @@ namespace studybuddyv1._3
 {
 
 
-	public partial class _default
+	public partial class SignUp
 	{
 
 		/// <summary>
-		/// LoginView1 control.
+		/// CreateUserWizard1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.LoginView LoginView1;
+		protected global::System.Web.UI.WebControls.CreateUserWizard CreateUserWizard1;
 	}
 }

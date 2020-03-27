@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StudyBuddyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="SortOrder" Type="nvarchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CourseURL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="ChatURL" Type="int" Nullable="false" />
+          <Property Name="ForumURL" Type="nvarchar" MaxLength="400" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UniCourseURL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="UniversityID" Type="int" Nullable="false" />
+          <Property Name="ChatURL" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="ForumURL" Type="nvarchar" MaxLength="400" Nullable="false" />
+        </EntityType>
+        <EntityType Name="University">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="SortOrder" Type="nvarchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UniversityURL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UniversityID" Type="int" Nullable="false" />
+          <Property Name="ChatURL" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="ForumURL" Type="nvarchar" MaxLength="400" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CourseURL_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="CourseURL" Type="Self.CourseURL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CourseURL">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UniCourseURL_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="UniCourseURL" Type="Self.UniCourseURL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UniCourseURL">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UniCourseURL_University">
+          <End Role="University" Type="Self.University" Multiplicity="1" />
+          <End Role="UniCourseURL" Type="Self.UniCourseURL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UniCourseURL">
+              <PropertyRef Name="UniversityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UniversityURL_University">
+          <End Role="University" Type="Self.University" Multiplicity="1" />
+          <End Role="UniversityURL" Type="Self.UniversityURL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UniversityURL">
+              <PropertyRef Name="UniversityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StudyBuddyModelStoreContainer">
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseURL" EntityType="Self.CourseURL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UniCourseURL" EntityType="Self.UniCourseURL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="University" EntityType="Self.University" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UniversityURL" EntityType="Self.UniversityURL" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CourseURL_Course" Association="Self.FK_CourseURL_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="CourseURL" EntitySet="CourseURL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UniCourseURL_Course" Association="Self.FK_UniCourseURL_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="UniCourseURL" EntitySet="UniCourseURL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UniCourseURL_University" Association="Self.FK_UniCourseURL_University">
+            <End Role="University" EntitySet="University" />
+            <End Role="UniCourseURL" EntitySet="UniCourseURL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UniversityURL_University" Association="Self.FK_UniversityURL_University">
+            <End Role="University" EntitySet="University" />
+            <End Role="UniversityURL" EntitySet="UniversityURL" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StudyBuddyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SortOrder" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CourseURLs" Relationship="Self.FK_CourseURL_Course" FromRole="Course" ToRole="CourseURL" />
+          <NavigationProperty Name="UniCourseURLs" Relationship="Self.FK_UniCourseURL_Course" FromRole="Course" ToRole="UniCourseURL" />
+        </EntityType>
+        <EntityType Name="CourseURL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="ChatURL" Type="Int32" Nullable="false" />
+          <Property Name="ForumURL" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_CourseURL_Course" FromRole="CourseURL" ToRole="Course" />
+        </EntityType>
+        <EntityType Name="UniCourseURL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="UniversityID" Type="Int32" Nullable="false" />
+          <Property Name="ChatURL" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ForumURL" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_UniCourseURL_Course" FromRole="UniCourseURL" ToRole="Course" />
+          <NavigationProperty Name="University" Relationship="Self.FK_UniCourseURL_University" FromRole="UniCourseURL" ToRole="University" />
+        </EntityType>
+        <EntityType Name="University">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SortOrder" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="UniCourseURLs" Relationship="Self.FK_UniCourseURL_University" FromRole="University" ToRole="UniCourseURL" />
+          <NavigationProperty Name="UniversityURLs" Relationship="Self.FK_UniversityURL_University" FromRole="University" ToRole="UniversityURL" />
+        </EntityType>
+        <EntityType Name="UniversityURL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UniversityID" Type="Int32" Nullable="false" />
+          <Property Name="ChatURL" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ForumURL" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="University" Relationship="Self.FK_UniversityURL_University" FromRole="UniversityURL" ToRole="University" />
+        </EntityType>
+        <Association Name="FK_CourseURL_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="CourseURL" Type="Self.CourseURL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CourseURL">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UniCourseURL_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="UniCourseURL" Type="Self.UniCourseURL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UniCourseURL">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UniCourseURL_University">
+          <End Role="University" Type="Self.University" Multiplicity="1" />
+          <End Role="UniCourseURL" Type="Self.UniCourseURL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UniCourseURL">
+              <PropertyRef Name="UniversityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UniversityURL_University">
+          <End Role="University" Type="Self.University" Multiplicity="1" />
+          <End Role="UniversityURL" Type="Self.UniversityURL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UniversityURL">
+              <PropertyRef Name="UniversityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StudyBuddyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Courses" EntityType="Self.Course" />
+          <EntitySet Name="CourseURLs" EntityType="Self.CourseURL" />
+          <EntitySet Name="UniCourseURLs" EntityType="Self.UniCourseURL" />
+          <EntitySet Name="Universities" EntityType="Self.University" />
+          <EntitySet Name="UniversityURLs" EntityType="Self.UniversityURL" />
+          <AssociationSet Name="FK_CourseURL_Course" Association="Self.FK_CourseURL_Course">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="CourseURL" EntitySet="CourseURLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UniCourseURL_Course" Association="Self.FK_UniCourseURL_Course">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="UniCourseURL" EntitySet="UniCourseURLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UniCourseURL_University" Association="Self.FK_UniCourseURL_University">
+            <End Role="University" EntitySet="Universities" />
+            <End Role="UniCourseURL" EntitySet="UniCourseURLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UniversityURL_University" Association="Self.FK_UniversityURL_University">
+            <End Role="University" EntitySet="Universities" />
+            <End Role="UniversityURL" EntitySet="UniversityURLs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StudyBuddyModelStoreContainer" CdmEntityContainer="StudyBuddyEntities">
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="StudyBuddyModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseURLs">
+            <EntityTypeMapping TypeName="StudyBuddyModel.CourseURL">
+              <MappingFragment StoreEntitySet="CourseURL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="ChatURL" ColumnName="ChatURL" />
+                <ScalarProperty Name="ForumURL" ColumnName="ForumURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UniCourseURLs">
+            <EntityTypeMapping TypeName="StudyBuddyModel.UniCourseURL">
+              <MappingFragment StoreEntitySet="UniCourseURL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="UniversityID" ColumnName="UniversityID" />
+                <ScalarProperty Name="ChatURL" ColumnName="ChatURL" />
+                <ScalarProperty Name="ForumURL" ColumnName="ForumURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Universities">
+            <EntityTypeMapping TypeName="StudyBuddyModel.University">
+              <MappingFragment StoreEntitySet="University">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UniversityURLs">
+            <EntityTypeMapping TypeName="StudyBuddyModel.UniversityURL">
+              <MappingFragment StoreEntitySet="UniversityURL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UniversityID" ColumnName="UniversityID" />
+                <ScalarProperty Name="ChatURL" ColumnName="ChatURL" />
+                <ScalarProperty Name="ForumURL" ColumnName="ForumURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

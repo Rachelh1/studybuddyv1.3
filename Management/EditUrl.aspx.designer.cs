@@ -11,53 +11,53 @@ namespace studybuddyv1._3.Management
 {
 
 
-	public partial class AddUrl
+	public partial class EditUrl
 	{
 
 		/// <summary>
-		/// DetailsView1 control.
+		/// GridView2 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
+		protected global::System.Web.UI.WebControls.GridView GridView2;
 
 		/// <summary>
-		/// DataUni control.
+		/// SqlDataSource2 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.SqlDataSource DataUni;
+		protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
 
 		/// <summary>
-		/// DetailsView2 control.
+		/// GridView1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.DetailsView DetailsView2;
+		protected global::System.Web.UI.WebControls.GridView GridView1;
 
 		/// <summary>
-		/// DataCourse control.
+		/// SqlDataSource1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.SqlDataSource DataCourse;
+		protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
 		/// <summary>
-		/// DetailsView3 control.
+		/// GridView3 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.DetailsView DetailsView3;
+		protected global::System.Web.UI.WebControls.GridView GridView3;
 
 		/// <summary>
 		/// SqlDataSource3 control.

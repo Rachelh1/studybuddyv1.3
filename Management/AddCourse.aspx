@@ -15,6 +15,7 @@
             <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
             <asp:BoundField DataField="SortOrder" HeaderText="SortOrder" SortExpression="SortOrder" />
+            <asp:CommandField ShowInsertButton="True" />
         </Fields>
     </asp:DetailsView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StudyBuddyConnectionString1 %>" DeleteCommand="DELETE FROM [Course] WHERE [ID] = @ID" InsertCommand="INSERT INTO [Course] ([Name], [SortOrder]) VALUES (@Name, @SortOrder)" ProviderName="<%$ ConnectionStrings:StudyBuddyConnectionString1.ProviderName %>" SelectCommand="SELECT [ID], [Name], [SortOrder] FROM [Course]" UpdateCommand="UPDATE [Course] SET [Name] = @Name, [SortOrder] = @SortOrder WHERE [ID] = @ID">
